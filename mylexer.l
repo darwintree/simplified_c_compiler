@@ -114,7 +114,7 @@ write
     printf("\t");
     printf("\n");
 }
-return
+return 
 {
     printf("\tRETURN");
     printf("\t%s", yytext);
@@ -312,9 +312,16 @@ return
     printf("\n");
 } 
 // Êý×Ö
-([0-9])+ 
+(-)?([0-9])+ 
 {
     printf("\tNUMBER");
+    printf("\t%s", yytext);
+    printf("\t");
+    printf("\n");
+} 
+(-)?([0-9])+\.([0-9])+ 
+{
+    printf("\tfloat");
     printf("\t%s", yytext);
     printf("\t");
     printf("\n");
@@ -323,6 +330,13 @@ return
 \"(.+?)\" 
 {
 	printf("\tCONSTSTR");
+    printf("\t%s", yytext);
+    printf("\t");
+    printf("\n");
+} 
+\'(.)\' 
+{
+	printf("\tASCII");
     printf("\t%s", yytext);
     printf("\t");
     printf("\n");
