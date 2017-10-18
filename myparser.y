@@ -57,6 +57,9 @@ Grammar
 
 int main(void)
 {
+	FILE *fp1, *fp2;
+	freopen_s(&fp1, "input.txt", "r", stdin);
+	freopen_s(&fp2, "output.txt", "w", stdout);
 	int n = 1;
 	mylexer lexer;
 	myparser parser;
